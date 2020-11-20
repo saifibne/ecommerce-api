@@ -65,7 +65,7 @@ app.use((req, res, next) => {
 });
 
 app.use(productRoutes);
-app.use(userRoutes);
+app.use(userRoutes); /*testing*/
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/ecommerce", {
