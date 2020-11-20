@@ -1,0 +1,28 @@
+{
+  "name": "ecommerce-api",
+  "version": "1.0.0",
+  "description": "api for ecommerce app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.794.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "imagemin": "^7.0.1",
+    "imagemin-webp": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.5",
+    "multer": "^1.4.2"
+  }
+}
