@@ -46,10 +46,16 @@ app.use(async (req, res, next) => {
     const fileNames = req.files.map((item) => {
       return item.path;
     });
-    req.updatedImages = await imagemin(fileNames, {
-      destination: "build/images",
-      plugins: [imageminWebp()],
-    });
+    try {
+      req.updatedImages = await imagemin(fileNames, {
+        destination: "build/images",
+        plugins: [imageminWebp()],
+      });
+    } catch (error) {
+      return res.status(500).json({
+        message: "imagemin server error",
+      });
+    }
     for (let file of fileNames) {
       deleteUtil.fileDelete(file);
     }
