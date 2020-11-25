@@ -222,8 +222,15 @@ exports.postAddProduct = async (req, res, next) => {
         Key: imageName,
         Body: image.data,
       };
+      const imageIndex = imageUrl.findIndex(
+        (item) => item.destinationPath === image.destinationPath
+      );
       awsConnection.upload(s3Param, (error, data) => {
-        imageUrls.push({ path: data.Location, key: data.Key });
+        imageUrls.push({
+          path: data.Location,
+          key: data.Key,
+          sorting: imageIndex,
+        });
         deleteMiddleware.fileDelete(image.destinationPath);
         if (imageUrls.length === imageUrl.length) {
           const newProduct = new Product({
